@@ -1,4 +1,4 @@
-function SearchForm ({inputValue, setInputValue, isLoading, handleSubmit}){
+function SearchForm ({inputValue, setInputValue, isLoading, handleSubmit, handleReset, showReset}){
     return(
         <div>
             <form className="flex flex-col w-full gap-4" onSubmit={handleSubmit}>
@@ -15,6 +15,15 @@ function SearchForm ({inputValue, setInputValue, isLoading, handleSubmit}){
                 hover:bg-amber-300 hover:text-orange-500 hover:shadow-none hover:transition-all duration-300 hover:w-1/6"
                 disabled={isLoading}
                 >{isLoading ? 'hold up . . .' : 'define it'}</button>
+                {showReset && (
+                    <button type="button"
+                    className="border-3 border-blue-950 bg-pink-500 text-white w-2/5 my-0 mx-auto py-1.5 font-black shadow-[5px_5px] shadow-blue-950 cursor-pointer
+                    hover:bg-amber-300 hover:text-orange-500 hover:shadow-none hover:transition-all duration-300 hover:w-2/5"
+                    onClick={handleReset}
+                    >
+                        find another word
+                    </button>
+                )}
             </form>
         </div>
     )
